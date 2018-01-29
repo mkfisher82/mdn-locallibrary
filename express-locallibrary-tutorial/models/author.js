@@ -4,10 +4,10 @@ var Schema = mongoose.Schema;
 
 var AuthorSchema = new Schema (
     {
-        firstName: {type: String, required: true, max: 100},
-        familyName: {type: String, required: true, max: 100},
-        dateOfBirth: {type: Date},
-        dateOfDeath: {type: Date}
+        first_name: {type: String, required: true, max: 100},
+        family_name: {type: String, required: true, max: 100},
+        date_of_birthBirth: {type: Date},
+        date_of_death: {type: Date}
     }
 );
 
@@ -15,7 +15,7 @@ var AuthorSchema = new Schema (
 AuthorSchema
 .virtual('name')
 .get( function() {
-    return this.familyName + ', ' + this.firstName;
+    return this.family_name + ', ' + this.first_name;
 });
 
 // Virtual for author's URL
@@ -26,4 +26,4 @@ AuthorSchema
 });
 
 //Export model
-model.exports = mongoose.model('Author', AuthorSchema);
+module.exports = mongoose.model('Author', AuthorSchema);
